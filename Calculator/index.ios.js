@@ -52,7 +52,7 @@ export default class ReactNativeDemo extends Component {
       operand = "" ;
       calMethod = '';
       this.setState({
-          hey: 0,
+          hey: 0
       }) ;
   }
 
@@ -167,7 +167,7 @@ export default class ReactNativeDemo extends Component {
                 </View>
                 <View style={styles.rows}>
                     <TouchableHighlight
-                        onPress={this.handleClear}
+                        onPress={this.handleClear.bind(this)}
                         underlayColor="transparent"
                         activeOpacity={0.8}>
                         <View style={[styles.cell, styles.functionalButton]}>
