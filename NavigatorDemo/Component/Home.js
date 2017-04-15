@@ -9,7 +9,11 @@ import {
 
 import {
     ScrollImage
-} from '../Component/ScrollView'
+} from '../Component/ScrollView';
+
+import {
+    NewsDetail
+} from '../Component/NewsDetail' ;
 
 let LocalData = require('../LocalData.json') ;
 
@@ -34,7 +38,7 @@ export class Home extends Component {
         return(
             <ListView
                 dataSource={this.state.dataSource}
-                renderRow={this.renderRow}
+                renderRow={(rowData) => this.renderRow(rowData)}
                 renderHeader={() =>this.renderHeader()}
             />
         ) ;
@@ -52,9 +56,12 @@ export class Home extends Component {
         );
     }
 
+
+
     renderRow(rowData) {
         return (
-            <TouchableOpacity activeOpacity={0.5}>
+            <TouchableOpacity activeOpacity={0.5}
+                              onPress={()=>this.pushToNewsDetail(rowData)}>
                 <View style={homeStyle.cell}>
                     {/*左边*/}
                     <Image source={{uri:rowData.imgsrc}} style={homeStyle.cellImage}/>
@@ -68,6 +75,19 @@ export class Home extends Component {
             </TouchableOpacity>
         ) ;
     }
+
+    // 跳转到新闻详情页
+    pushToNewsDetail(rowData){
+        this.props.navigator.push({
+            component: NewsDetail,
+            title: rowData.title,
+            passProps:{rowData}
+        }) ;
+    }
+
+
+
+
     // 请求网络数据
     componentDidMount() {
         this.loadDataFromNet() ;
