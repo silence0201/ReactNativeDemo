@@ -23,7 +23,7 @@ export class Home extends Component {
             <View style={styles.navBar}>
                 {/*左边*/}
                 <TouchableOpacity>
-                    <Text style={{color:'white'}}>广州</Text>
+                    <Text style={{color:'white',marginLeft:10}}>广州</Text>
                 </TouchableOpacity>
                 {/*中间*/}
                 <TextInput
