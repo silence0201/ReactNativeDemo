@@ -11,6 +11,10 @@ import {
     MyCell
 } from './MyCell'
 
+import {
+    MineMiddleView
+} from './MineMiddleView'
+
 export class Mine extends Component {
     render() {
         return (
@@ -22,6 +26,7 @@ export class Mine extends Component {
                         leftTitle="我的订单"
                         rightTitle="查看全部订单"
                     />
+                    <MineMiddleView />
                 </View>
 
                 <View style={{marginTop:20}}>
