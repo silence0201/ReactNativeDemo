@@ -15,10 +15,20 @@ import {
     MineMiddleView
 } from './MineMiddleView'
 
+import {
+    MineHeaderView
+} from './MineHeaderView'
+
 export class Mine extends Component {
     render() {
         return (
-            <ScrollView style={styles.container}>
+            <ScrollView
+                style={styles.container}
+                contentInset = {{top: -200}}
+                contentOffset = {{y:200}}>
+
+                {/*头部的View*/}
+                <MineHeaderView />
 
                 <View>
                     <MyCell
