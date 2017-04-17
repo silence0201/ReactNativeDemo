@@ -11,6 +11,10 @@ import {
     TopView
 } from './TopView'
 
+import {
+    HomeMiddleView
+} from './HomeMiddleView'
+
 export class Home extends Component {
     render() {
         return (
@@ -21,6 +25,8 @@ export class Home extends Component {
                 <ScrollView>
                     {/*头部View*/}
                     <TopView />
+                    {/*中间的内容*/}
+                    <HomeMiddleView />
                 </ScrollView>
             </View>
         );
