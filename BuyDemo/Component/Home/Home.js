@@ -4,8 +4,12 @@
 
 import React, { Component } from 'react';
 import {
-    StyleSheet, View, Text,TouchableOpacity, Image, TextInput,Platform
+    StyleSheet, View, Text,TouchableOpacity, Image, TextInput,Platform,ScrollView
 } from 'react-native';
+
+import {
+    TopView
+} from './TopView'
 
 export class Home extends Component {
     render() {
@@ -13,7 +17,11 @@ export class Home extends Component {
             <View style={styles.container}>
                 {/*首页导航条*/}
                 {this.renderNavBar()}
-
+                {/*首页的主要内容*/}
+                <ScrollView>
+                    {/*头部View*/}
+                    <TopView />
+                </ScrollView>
             </View>
         );
     }
