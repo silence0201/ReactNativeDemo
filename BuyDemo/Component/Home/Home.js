@@ -31,6 +31,10 @@ import {
     ShopCenterDetail
 } from './ShopCenterDetail'
 
+import {
+    GuestYouLike
+} from './GuestYouLike'
+
 export class Home extends Component {
     render() {
         return (
@@ -51,6 +55,9 @@ export class Home extends Component {
                     <ShopCenter
                         popToHomeView = {(url) => this.pushToShopCenterDetail(url)}
                     />
+
+                    {/*猜你喜欢*/}
+                    <GuestYouLike />
                 </ScrollView>
             </View>
         );
