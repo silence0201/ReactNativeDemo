@@ -23,6 +23,14 @@ import {
     HomeDetail
 } from './HomeDetail'
 
+import {
+    ShopCenter
+} from './ShopCenter'
+
+import {
+    ShopCenterDetail
+} from './ShopCenterDetail'
+
 export class Home extends Component {
     render() {
         return (
@@ -38,6 +46,10 @@ export class Home extends Component {
                     {/*中间下半部分的内容*/}
                     <MiddleBottomView
                         popTopHome={(data)=>{this.pushToDetail(data)}}
+                    />
+                    {/*购物中心*/}
+                    <ShopCenter
+                        popToHomeView = {(url) => this.pushToShopCenterDetail(url)}
                     />
                 </ScrollView>
             </View>
@@ -67,6 +79,21 @@ export class Home extends Component {
                 </View>
             </View>
         ) ;
+    }
+
+    // 跳转到购物中心详情页
+    pushToShopCenterDetail(url){
+        this.props.navigator.push(
+            {
+                component: ShopCenterDetail, // 要跳转的版块
+                passProps: {'url': this.dealWithUrl(url)}
+            }
+        );
+    }
+
+    // 处理URL
+    dealWithUrl(url){
+        return url.replace('imeituan://www.meituan.com/web/?url=', '');
     }
 
     // 跳转到二级界面
