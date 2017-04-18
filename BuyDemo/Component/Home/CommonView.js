@@ -7,8 +7,8 @@ import {
     StyleSheet, View, Text,TouchableOpacity,Image
 } from 'react-native';
 
-var Dimensions = require('Dimensions');
-var {width} = Dimensions.get('window');
+let Dimensions = require('Dimensions');
+let {width} = Dimensions.get('window');
 
 export class CommonView extends Component {
     static defaultProps = {

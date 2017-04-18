@@ -15,6 +15,14 @@ import {
     HomeMiddleView
 } from './HomeMiddleView'
 
+import {
+    MiddleBottomView
+} from './MiddleBottomView'
+
+import {
+    HomeDetail
+} from './HomeDetail'
+
 export class Home extends Component {
     render() {
         return (
@@ -27,6 +35,10 @@ export class Home extends Component {
                     <TopView />
                     {/*中间的内容*/}
                     <HomeMiddleView />
+                    {/*中间下半部分的内容*/}
+                    <MiddleBottomView
+                        popTopHome={(data)=>{this.pushToDetail(data)}}
+                    />
                 </ScrollView>
             </View>
         );
@@ -55,6 +67,17 @@ export class Home extends Component {
                 </View>
             </View>
         ) ;
+    }
+
+    // 跳转到二级界面
+    pushToDetail(data){
+        // alert(data);
+        this.props.navigator.push(
+            {
+                component: HomeDetail, // 要跳转的版块
+                title:'详情页'
+            }
+        );
     }
 }
 
